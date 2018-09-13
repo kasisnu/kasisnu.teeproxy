@@ -1,0 +1,15 @@
+---
+- name: Pull teeproxy image
+  docker_image:
+    name: {{ teeproxy_image }}
+    tag: {{ teeproxy_version }}
+
+- name: Create a teeproxy container
+  docker_container:
+    name: {{ teeproxy_image }}
+    image: "{{ teeproxy_image }}:{{ teeproxy_version }}"
+    command: "teeproxy -l {{ teeproxy_port }} -a {{ backend_a }} -b {{ backend_b }}"
+    state: present
+    recreate: yes
+    exposed_ports:
+      - {{ teeproxy_port }}

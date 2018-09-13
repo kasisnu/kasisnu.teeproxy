@@ -1,0 +1,8 @@
+---
+# defaults file for kasisnu.teeproxy
+teeproxy_image: "kasisnu/teeproxy"
+teeproxy_version: "latest"
+teeproxy_port: 8888
+
+backend_a: "localhost:9000"
+backend_b: "localhost:9001"

@@ -9,7 +9,7 @@
     name: "teeproxy"
     image: "{{ teeproxy_image }}:{{ teeproxy_version }}"
     command: "teeproxy -l {{ teeproxy_port }} -a {{ backend_a }} -b {{ backend_b }}"
-    state: present
+    state: started
     recreate: yes
     exposed_ports:
       - "{{ teeproxy_port }}"

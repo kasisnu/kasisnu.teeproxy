@@ -11,5 +11,5 @@
     command: "teeproxy -l {{ teeproxy_port }} -a {{ backend_a }} -b {{ backend_b }}"
     state: started
     recreate: yes
-    exposed_ports:
-      - "{{ teeproxy_port }}"
+    ports:
+      - "{{ teeproxy_port }}:{{ teeproxy_port }}"
